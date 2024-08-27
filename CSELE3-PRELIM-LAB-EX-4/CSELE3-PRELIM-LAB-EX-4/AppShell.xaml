@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="CSELE3_PRELIM_LAB_EX_4.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:CSELE3_PRELIM_LAB_EX_4.View"
+    xmlns:mi="http://www.aathifmahir.com/dotnet/2022/maui/icons"
+    Shell.FlyoutBehavior="Flyout"
+    Shell.TabBarIsVisible="True"
+    >
+
+    <FlyoutItem Title="Home" FlyoutDisplayOptions="AsMultipleItems">
+
+    </FlyoutItem>
+
+    <TabBar>
+        <ShellContent
+        Icon="{mi:Material Home}"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" />
+
+        <ShellContent
+        Icon="{mi:Material Folder}"
+        ContentTemplate="{DataTemplate local:FoldersPage}"
+        Route="FoldersPage" />
+
+        <ShellContent
+        Icon="{mi:Material AddCircle, IconSize=Large}"
+        ContentTemplate="{DataTemplate local:AddTaskPage}"
+        Route="AddTaskPage" />
+
+        <ShellContent
+        Icon="{mi:Material Chat}"
+        ContentTemplate="{DataTemplate local:MessagesPage}"
+        Route="MessagesPage" />
+
+        <ShellContent
+        Icon="{mi:Material Person}"
+        ContentTemplate="{DataTemplate local:ProfilePage}"
+        Route="ProfilePage" />
+    </TabBar>
+
+
+
+</Shell>
