@@ -30,6 +30,12 @@
                 SemanticProperties.Hint="Counts the number of times you click"
                 Clicked="OnCounterClicked"
                 HorizontalOptions="Fill" />
+
+            <Button
+                x:Name="NavBtn"
+                Text="Go to New Page" 
+                Clicked="OnNavClick"
+                HorizontalOptions="Fill" />
         </VerticalStackLayout>
     </ScrollView>
 

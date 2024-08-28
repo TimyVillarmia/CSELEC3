@@ -8,7 +8,7 @@ namespace CSELE3_PRELIM_LAB_EX_4
         {
             InitializeComponent();
 
-            MainPage = new AppShell();
+            MainPage = new NavigationPage(new AppShell());
         }
     }
 }

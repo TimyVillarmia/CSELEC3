@@ -9,8 +9,13 @@
     Shell.TabBarIsVisible="True"
     >
 
-    <FlyoutItem Title="Home" FlyoutDisplayOptions="AsMultipleItems">
-
+    <FlyoutItem Title="Home" FlyoutDisplayOptions="AsMultipleItems" Route="Root">
+        <Tab>
+            <ShellContent
+            Icon="{mi:Material ArrowRight}"
+            ContentTemplate="{DataTemplate local:NavigationPage}"
+            Route="NavigationPage" />
+        </Tab>
     </FlyoutItem>
 
     <TabBar>
