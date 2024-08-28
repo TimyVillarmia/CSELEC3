@@ -1,6 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
-using MauiIcons.Material;
-
+﻿using MauiIcons.Material;
+using Microsoft.Extensions.Logging;
 
 namespace CSELE3_PRELIM_LAB_EX_4
 {
@@ -18,10 +17,8 @@ namespace CSELE3_PRELIM_LAB_EX_4
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
-
-
 #if DEBUG
-            builder.Logging.AddDebug();
+    		builder.Logging.AddDebug();
 #endif
 
             return builder.Build();

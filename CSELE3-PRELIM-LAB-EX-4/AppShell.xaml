@@ -7,15 +7,11 @@
     xmlns:mi="http://www.aathifmahir.com/dotnet/2022/maui/icons"
     Shell.FlyoutBehavior="Flyout"
     Shell.TabBarIsVisible="True"
-    >
+    Title="CSELE3_PRELIM_LAB_EX_4">
 
-    <FlyoutItem Title="Home" FlyoutDisplayOptions="AsMultipleItems" Route="Root">
-        <Tab>
-            <ShellContent
-            Icon="{mi:Material ArrowRight}"
-            ContentTemplate="{DataTemplate local:NavigationPage}"
-            Route="NavigationPage" />
-        </Tab>
+    
+    <FlyoutItem Title="Home" FlyoutDisplayOptions="AsMultipleItems">
+
     </FlyoutItem>
 
     <TabBar>
@@ -44,7 +40,5 @@
         ContentTemplate="{DataTemplate local:ProfilePage}"
         Route="ProfilePage" />
     </TabBar>
-
-
 
 </Shell>

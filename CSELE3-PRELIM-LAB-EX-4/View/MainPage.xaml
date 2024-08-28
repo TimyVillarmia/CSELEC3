@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CSELE3_PRELIM_LAB_EX_4.View.MainPage">
-
+             x:Class="CSELE3_PRELIM_LAB_EX_4.View.MainPage"
+             Title="MainPage">
+    
     <ScrollView>
         <VerticalStackLayout
             Padding="30,0"
@@ -32,11 +33,10 @@
                 HorizontalOptions="Fill" />
 
             <Button
-                x:Name="NavBtn"
+                x:Name="NewPageBtn"
                 Text="Go to New Page" 
-                Clicked="OnNavClick"
+                Clicked="OnNewPageClicked"
                 HorizontalOptions="Fill" />
         </VerticalStackLayout>
     </ScrollView>
-
 </ContentPage>
