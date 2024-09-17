@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CSELE3_MIDTERM_LAB_EX_1.MainPage">
+
+    <Grid x:Name="Container" BackgroundColor="White">
+        <Image Source="mainbg.jpg" Aspect="AspectFill" ZIndex="1"/>
+        <Image Source="arm.png" Aspect="AspectFill" ZIndex="4"/>
+        <Image Source="butt.png" Aspect="AspectFill" ZIndex="3"/>
+        <Image x:Name="weapon" Source="weapon.png" Aspect="AspectFill" ZIndex="2"/>
+        <Grid VerticalOptions="End" ZIndex="5">
+            <Image Source="bg.png" Aspect="AspectFill" VerticalOptions="Fill" HorizontalOptions="Fill"/>
+            <VerticalStackLayout Spacing="0" VerticalOptions="Center" Padding="40,0,40,0">
+                <Grid>
+                    <Image Source="slider.png" Aspect="AspectFill"/>
+                    <Slider x:Name="sldRed"
+                            Margin="20,0,20,0"
+                            ThumbImageSource="sword_1.png"
+                            MaximumTrackColor="{StaticResource CustomPrimary}"
+                            MinimumTrackColor="{StaticResource CustomPrimary}"
+                            ThumbColor="{StaticResource CustomPrimary}"
+                            ValueChanged="Slider_ValueChanged"/>
+                </Grid>
+                <Grid>
+                    <Image Source="slider.png" Aspect="AspectFill"/>
+                    <Slider x:Name="sldGreen"
+                            Margin="20,0,20,0"
+                            ThumbImageSource="sword_1.png"
+                            MaximumTrackColor="{StaticResource CustomSecondary}"
+                            MinimumTrackColor="{StaticResource CustomSecondary}"
+                            ThumbColor="{StaticResource CustomSecondary}"
+                            ValueChanged="Slider_ValueChanged"/>
+                </Grid>
+                <Grid>
+                    <Image Source="slider.png" Aspect="AspectFill"/>
+                    <Slider x:Name="sldBlue"
+                            Margin="20,0,20,0"
+                            ThumbImageSource="sword_1.png"
+                            MaximumTrackColor="{StaticResource CustomTertiary}"
+                            MinimumTrackColor="{StaticResource CustomTertiary}"
+                            ThumbColor="{StaticResource CustomTertiary}"
+                            ValueChanged="Slider_ValueChanged"/>
+                </Grid>
+
+                <HorizontalStackLayout Spacing="20" Padding="10,0,10,0">
+                    <Grid>
+                        <Image
+                               Source="btnbg.png"
+                               WidthRequest="200"
+                               Aspect="AspectFill"
+                               HorizontalOptions="Start"
+                               />
+                        <Button x:Name="btnRandom"
+                                TextColor="White"
+                                Background="Transparent"
+                                FontFamily="OldLondon.ttf"
+                                Text="Generate"
+                                Clicked="btnRandom_Clicked"/>
+                    </Grid>
+                    
+                    <Entry x:Name="entryHex"
+                           Placeholder="#000000"
+                           MaxLength="7"
+                           Completed="entryHex_Completed"/>
+                </HorizontalStackLayout>
+
+            </VerticalStackLayout>
+        </Grid>
+    </Grid>
+
+</ContentPage>
