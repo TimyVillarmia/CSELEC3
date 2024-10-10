@@ -5,12 +5,14 @@
              BackgroundImageSource="bg_space.png"
              x:Class="CSELE3_MIDTERM_SEATWORK_1.MainPage">
     <ContentPage.Resources>
-        <Color x:Key="Primary">#81d1b4</Color>
-    </ContentPage.Resources>
+        <Color x:Key="Primary">#b5cff8</Color>
+        <Color x:Key="Secondary">#313131</Color>
+        <Color x:Key="PrimaryText">#ffffff</Color>
+    </ContentPage.Resources> 
     <Grid Margin="20">
         <Grid.RowDefinitions>
             <RowDefinition Height=".3*"/>
-            <RowDefinition Height=".7*"/>
+            <RowDefinition Height=".7*" />
         </Grid.RowDefinitions>
         <Frame Padding="30,20"
                CornerRadius="30"
@@ -43,6 +45,7 @@
                     Grid.Column="0"
                     VerticalOptions="CenterAndExpand">
                     <Label 
+                        x:Name="lblTotalPerPerson"
                         Text="P 0.00"
                         FontSize="32"
                         FontAttributes="Bold"
@@ -72,6 +75,7 @@
                     Grid.Column="1"
                     VerticalOptions="CenterAndExpand">
                     <Label 
+                        x:Name="lblSubTotal"
                         Text="P 0.00"
                         FontSize="24"
                         HorizontalOptions="End"
@@ -88,6 +92,7 @@
                     Grid.Column="1"
                     VerticalOptions="CenterAndExpand">
                     <Label 
+                        x:Name="lblTipPerPerson"
                         Text="P 0.00"
                         FontSize="24"
                         HorizontalOptions="End"
@@ -99,10 +104,181 @@
                         HorizontalOptions="End"
                         TextColor="Black"/>
                 </VerticalStackLayout>
-
-
             </Grid>
         </Frame>
+
+        <VerticalStackLayout 
+            Grid.Row="1"
+            Spacing="30"
+            Padding="0,30,0,0"
+            Margin="0,0,0,0">
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width=".3*"/>
+                    <ColumnDefinition Width=".7*"/>
+                </Grid.ColumnDefinitions>
+                <Label Text="Enter your bill: "
+                       TextColor="{StaticResource PrimaryText}"
+                       VerticalOptions="Center"/>
+
+                <Entry x:Name="txtBill"
+                       Grid.Column="1"
+                       BackgroundColor="{StaticResource Secondary}"
+                       Keyboard="Numeric"
+                       Text="0.00"
+                       TextColor="{StaticResource PrimaryText}"
+                       VerticalOptions="Center"
+                       Completed="txtBill_Completed"/>
+            </Grid>
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width=".3*"/>
+                    <ColumnDefinition Width=".7*"/>
+                </Grid.ColumnDefinitions>
+                <Label 
+                Grid.Row="1"
+                Text="Choose you tip: "
+                LineBreakMode="CharacterWrap"
+                TextColor="{StaticResource PrimaryText}"
+                VerticalOptions="Center"/>
+                <HorizontalStackLayout 
+                Grid.Row="1"
+                Grid.Column="1"
+                HeightRequest="60"
+                HorizontalOptions="CenterAndExpand"
+                Spacing="5">
+                    <Button x:Name="btn10"
+                        Text="10%"
+                        WidthRequest="60"
+                        HeightRequest="60"
+                        TextColor="Black"
+                        BackgroundColor="{StaticResource Primary}"
+                        Clicked="Button_Clicked"/>
+                    <Button x:Name="btn15"
+                        Text="15%"
+                        WidthRequest="60"
+                        HeightRequest="60"
+                        TextColor="Black"
+                        BackgroundColor="{StaticResource Primary}"
+                        Clicked="Button_Clicked"  />
+                    <Button x:Name="btn20"
+                        Text="20%"
+                        WidthRequest="60"
+                        HeightRequest="60"
+                        Clicked="Button_Clicked"      
+                        TextColor="Black"
+                        BackgroundColor="{StaticResource Primary}"/>
+                    <Button ClassId="4"
+                        Text="Custom Tip" 
+                        WidthRequest="60"
+                        HeightRequest="60"
+                        Clicked="Button_Clicked"      
+                        FontSize="8"
+                        LineBreakMode="CharacterWrap"
+                        TextColor="{StaticResource PrimaryText}"
+                        BorderWidth="1"
+                        BorderColor="{StaticResource Primary}"
+                        BackgroundColor="Transparent"/>
+                </HorizontalStackLayout>
+            </Grid>
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width=".3*"/>
+                    <ColumnDefinition Width=".7*"/>
+                </Grid.ColumnDefinitions> 
+                <Label x:Name="lblTip"
+                        Grid.Row="2"
+                        Text="Tip: 0%"
+                        TextColor="{StaticResource Primary}"
+                        VerticalOptions="Center"/>
+                <Slider x:Name="sldTip"
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Maximum="50"
+                    Minimum="0"
+                    ValueChanged="sldTip_ValueChanged"/>
+            </Grid>
+            <Grid 
+                IsVisible="False"
+                x:Name="customTipContainer">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width=".3*"/>
+                    <ColumnDefinition Width=".7*"/>
+                </Grid.ColumnDefinitions>
+                <Label  
+                    Grid.Column="0"
+                    Text="Enter you tip:"
+                    TextColor="{StaticResource PrimaryText}"/>
+                <Entry 
+                    Grid.Column="1"
+                    x:Name="txtTip" 
+                    Keyboard="Numeric"
+                    BackgroundColor="{StaticResource Secondary}"
+                    Text="0.00"
+                    TextColor="{StaticResource PrimaryText}"
+                    Completed="txtTip_Completed"/>
+            </Grid>
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width=".3*"/>
+                    <ColumnDefinition Width=".7*"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="4"
+                   Text="Split the Total"
+                   TextColor="{StaticResource LightFont}"
+                   VerticalOptions="Center"/>
+
+                <HorizontalStackLayout x:Name="test"
+                                   Grid.Row="4"
+                                   Grid.Column="1"
+                                   Spacing="10"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center">
+
+                    <Button x:Name="btnMinus"
+                        Text="-"
+                        WidthRequest="60"
+                        TextColor="{StaticResource PrimaryText}"
+                        BorderColor="{StaticResource Primary}"
+                        BorderWidth="1"
+                        Background="Transparent"
+                        FontSize="24"
+                        Clicked="btnMinus_Clicked"/>
+
+                    <Entry x:Name="txtNoPersons"
+                       Margin="-5,0,-5,0"
+                       FontSize="25"
+                       HeightRequest="50"
+                       HorizontalOptions="Center"
+                       HorizontalTextAlignment="Center"
+                       TextColor="{StaticResource PrimaryText}"
+                       VerticalOptions="Center"
+                       VerticalTextAlignment="Center"
+                       BackgroundColor="{StaticResource Secondary}"
+                       WidthRequest="100"
+                       Keyboard="Numeric"
+                       Completed="txtNoPersons_Completed"
+                       PlaceholderColor="Gold"/>
+
+                    <Button x:Name="btnPlus"
+                        Text="+"
+                        WidthRequest="60"
+                        TextColor="{StaticResource PrimaryText}"
+                        BorderColor="{StaticResource Primary}"
+                        BorderWidth="1"
+                        Background="Transparent"
+                        FontSize="24"
+                        Clicked="btnPlus_Clicked"/>
+                </HorizontalStackLayout>
+            </Grid>
+
+
+
+        </VerticalStackLayout>
+
+
+
+
     </Grid>
 
 </ContentPage>
