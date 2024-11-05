@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BMI_APP.MainPage" 
+             xmlns:local="clr-namespace:BMI_APP.ViewModels"
+             xmlns:gauge="clr-namespace:Syncfusion.Maui.Gauges;assembly=Syncfusion.Maui.Gauges"
+             xmlns:inputLayout="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             xmlns:sliders="clr-namespace:Syncfusion.Maui.Sliders;assembly=Syncfusion.Maui.Sliders"
+             BackgroundColor="White"
+             Padding="12">
+    <ContentPage.Resources>
+        <gauge:GaugeLabelStyle x:Key="labelStyle" FontSize="11" TextColor="White"/>
+    </ContentPage.Resources>
+    <ContentPage.BindingContext>
+        <local:BMIViewModel />
+    </ContentPage.BindingContext>
+    <VerticalStackLayout>
+        <Label Text="Body Mass Index" TextColor="#121212" FontSize="Title" FontAttributes="Bold" Margin="0,20"/>
+        <Frame BackgroundColor="Transparent"
+               BorderColor="#121212"
+               CornerRadius="8"
+               Padding="0"
+               Margin="0,0,0,20">
+            <gauge:SfRadialGauge>
+                <gauge:SfRadialGauge.Axes>
+                    <gauge:RadialAxis Minimum="0" Maximum="40"
+                                EnableLoadingAnimation="True" RadiusFactor="0.9" 
+                                CanRotateLabels="True"
+                                StartAngle="180" EndAngle="360">
+                        <gauge:RadialAxis.AxisLineStyle>
+                            <gauge:RadialLineStyle ThicknessUnit="Factor" Thickness=".2"/>
+                        </gauge:RadialAxis.AxisLineStyle>
+                        <gauge:RadialAxis.Pointers>
+                            <gauge:ShapePointer Value="{Binding BMIScore}"
+                                    Offset="-35"/>
+                        </gauge:RadialAxis.Pointers>
+                        <gauge:RadialAxis.Annotations>
+                            <gauge:GaugeAnnotation DirectionUnit="AxisValue" DirectionValue="20" PositionFactor="0.1">
+                                <gauge:GaugeAnnotation.Content>
+                                    <Label
+                                        FontAttributes="Bold"
+                                        FontSize="Title"
+                                        HorizontalTextAlignment="Center"
+                                        Text="{Binding BMIScore}"
+                                        TextColor="Black" />
+                                </gauge:GaugeAnnotation.Content>
+                            </gauge:GaugeAnnotation>
+                        </gauge:RadialAxis.Annotations>
+                        <gauge:RadialAxis.Ranges>
+                            <gauge:RadialRange 
+                                StartValue="0" 
+                                EndValue="18.5" 
+                                Fill="Blue"
+                                LabelStyle="{StaticResource labelStyle}"
+                                Label="Underweight"
+                                WidthUnit="Factor" 
+                                StartWidth=".3" 
+                                EndWidth=".3"></gauge:RadialRange>
+                            <gauge:RadialRange 
+                                StartValue="18.6" 
+                                EndValue="24.9" 
+                                Fill="Green" 
+                                LabelStyle="{StaticResource labelStyle}"
+                                Label="Normal"
+                                WidthUnit="Factor" 
+                                StartWidth=".3" 
+                                EndWidth=".3"></gauge:RadialRange>
+                            <gauge:RadialRange 
+                                StartValue="25" 
+                                EndValue="29.9" 
+                                Fill="Orange" 
+                                LabelStyle="{StaticResource labelStyle}"
+                                Label="Overweight"
+                                WidthUnit="Factor" 
+                                StartWidth=".3" 
+                                EndWidth=".3"></gauge:RadialRange>
+                            <gauge:RadialRange 
+                                StartValue="30" 
+                                EndValue="40" 
+                                Fill="Red" 
+                                LabelStyle="{StaticResource labelStyle}"
+                                Label="Obesity"
+                                WidthUnit="Factor" 
+                                StartWidth=".3" 
+                                EndWidth=".3"></gauge:RadialRange>
+                        </gauge:RadialAxis.Ranges>
+                    </gauge:RadialAxis>
+                </gauge:SfRadialGauge.Axes>
+            </gauge:SfRadialGauge>
+        </Frame>
+        <Label Text="Height (in cm)" TextColor="#121212" FontSize="Subtitle" FontAttributes="Bold" Margin="0,10"/>
+        <Frame BackgroundColor="Transparent"
+               BorderColor="#121212"
+               CornerRadius="8">
+            <sliders:SfSlider 
+                Padding="0"
+                Minimum="100"
+                Maximum="220"
+                Value="{Binding Height}"
+                ShowLabels="True"
+                Interval="25">
+                <sliders:SfSlider.Tooltip>
+                    <sliders:SliderTooltip />
+                </sliders:SfSlider.Tooltip>
+            </sliders:SfSlider>
+        </Frame>
+        <Label Text="Weight (in kg)" TextColor="#121212" FontSize="Subtitle" FontAttributes="Bold" Margin="0,10"/>
+        <Frame BackgroundColor="Transparent"
+               BorderColor="#121212"
+               CornerRadius="8">
+            <sliders:SfSlider 
+                Minimum="30"
+                Maximum="150"
+                Value="{Binding Weight}"
+                ShowLabels="True"
+                Interval="25">
+                <sliders:SfSlider.Tooltip>
+                    <sliders:SliderTooltip />
+                </sliders:SfSlider.Tooltip>
+            </sliders:SfSlider>
+        </Frame>
+    </VerticalStackLayout>
+    
+    
+
+</ContentPage>
