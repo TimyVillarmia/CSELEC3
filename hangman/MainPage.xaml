@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="hangman.MainPage"
+             NavigationPage.HasNavigationBar="False"
+             Shell.NavBarIsVisible="False"
+             Padding="0,20,0,0">
+
+    <ScrollView>
+        <Grid RowDefinitions=".6*, .4*">
+
+            <VerticalStackLayout VerticalOptions="Start" HorizontalOptions="Center">
+                <HorizontalStackLayout Spacing="4" HorizontalOptions="Center">
+                    <Picker ItemsSource="{Binding categories}"
+                            x:Name="CategoryPicker"
+                            SelectedIndexChanged="CategoryPicker_SelectedIndexChanged"
+                            VerticalOptions="Center"
+                            TextColor="White"
+                            WidthRequest="200"
+                            HorizontalTextAlignment="Center">
+                    </Picker>
+
+                    <HorizontalStackLayout Spacing="2">
+                        <Button WidthRequest="48"
+                                HorizontalOptions="Start"
+                                Background="#ead5aa"
+                                ImageSource="reset.png"
+                                Clicked="Reset_Clicked"/>
+                        <Button
+                            x:Name="HintBtn"
+                            ImageSource="hint.png"
+                            Clicked="HintBtn_Clicked"
+                            WidthRequest="48"
+                            VerticalOptions="Center"
+                            Background="#ead5aa"/>
+                    </HorizontalStackLayout>
+
+                </HorizontalStackLayout>
+
+                <VerticalStackLayout  Margin="0,20,0,0">
+                    <Image HeightRequest="300" Aspect="AspectFit" Source="{Binding CurrentImage}"/>
+                    <Label FontSize="40"
+                           HorizontalOptions="Center"
+                           Text="{Binding Spotlights}"
+                           VerticalTextAlignment="Center"/>
+
+                    <Label FontSize="Large"
+                           HorizontalTextAlignment="Center"
+                           Text="{Binding Message}"/>
+                </VerticalStackLayout>
+                
+                <!--<Label FontAttributes="Bold"
+                       FontSize="Title"
+                       Text="{Binding GameStatus}"/>-->
+
+                <Image WidthRequest="200" HeightRequest="100" Source="{Binding GameStatusImage}"/>
+
+
+            </VerticalStackLayout>
+
+
+            <FlexLayout Grid.Row="1" 
+                        x:Name="LettersContainer"
+                        Wrap="Wrap"
+                        BindableLayout.ItemsSource="{Binding Letters}"
+                        AlignContent="Center"
+                        JustifyContent="Center">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <Button HeightRequest="50"
+                                WidthRequest="50"
+                                Margin="1,4"     
+                                TextTransform="Uppercase"
+                                FontAttributes="Bold"
+                                Background="#ead5aa"
+                                Text="{Binding .}"
+                                Clicked="Button_Clicked"/>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </FlexLayout>
+        </Grid>
+    </ScrollView>
+
+</ContentPage>

@@ -2,7 +2,7 @@
 using Microsoft.Maui.Hosting;
 using System;
 
-namespace BMI_APP
+namespace hangman
 {
     internal class Program : MauiApplication
     {
