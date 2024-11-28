@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UnitConverter.MVVM.Views.ConverterView"
+             Title="{Binding QuantityName}">
+    <ContentPage.Resources>
+        <Color x:Key="AppColor1">#10002B</Color>
+        <Color x:Key="AppColor2">#240046</Color>
+        <Color x:Key="AppColor3">#3C096C</Color>
+        <Color x:Key="AppColor4">#5A189A</Color>
+        <Color x:Key="TextColor">#121212</Color>
+        <Color x:Key="BackgroundColor">#FFFFFC</Color>
+    </ContentPage.Resources>
+
+    <Grid
+        RowDefinitions="*, *">
+
+        <Grid
+            BackgroundColor="{StaticResource BackgroundColor}"
+            Grid.Row="0">
+
+            <VerticalStackLayout
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="Center"
+                Padding="20,0">
+
+                <Entry
+                    FontSize="100"
+                    HorizontalTextAlignment="Center"
+                    Text="{Binding FromValue}"
+                    TextColor="{StaticResource TextColor}"
+                    ReturnCommand="{Binding ReturnCommand}" />
+                <Frame BorderColor="Black"  
+                       BackgroundColor="{StaticResource BackgroundColor}"
+                       Padding="20,10"
+                       CornerRadius="24">
+                    <Picker
+                        HorizontalTextAlignment="Center"
+                        TextColor="{StaticResource TextColor}"
+                        ItemsSource="{Binding FromMeasures}" 
+                        SelectedItem="{Binding CurrentFromMeasure}"
+                        SelectedIndexChanged="Picker_SelectedIndexChanged" />
+                </Frame>
+
+            </VerticalStackLayout>
+        </Grid>
+
+        <Grid
+            BackgroundColor="{StaticResource BackgroundColor}"
+            Grid.Row="1">
+
+            <ScrollView VerticalOptions="FillAndExpand"> 
+                <VerticalStackLayout
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="Center"
+                    Padding="20,0"
+                    >
+
+                    <Label
+                        FontSize="100"
+                        HorizontalTextAlignment="Center"
+                        Text="{Binding ToValue, StringFormat='{0:0.##}'}"
+                        TextColor="{StaticResource TextColor}" />
+                    <Frame BorderColor="Black"  
+                           BackgroundColor="{StaticResource BackgroundColor}"
+                           Padding="20,10"
+                           CornerRadius="24">
+                        <Picker
+                             HorizontalTextAlignment="Center"
+                             TextColor="{StaticResource TextColor}"
+                             ItemsSource="{Binding ToMeasures}"
+                             SelectedItem="{Binding CurrentToMeasure}"
+                             SelectedIndexChanged="Picker_SelectedIndexChanged" />
+                    </Frame>
+
+                </VerticalStackLayout>
+            </ScrollView>
+        </Grid>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UnitConverter.MVVM.Views.MenuView"
+             Title="MenuView"
+             NavigationPage.HasNavigationBar="False"
+             Background="{StaticResource BackgroundColor}">
+    <ContentPage.Resources>
+        <Color x:Key="AppColor1">#10002B</Color>
+        <Color x:Key="PrimaryText">#121212</Color>
+        <Color x:Key="AppColor2">#240046</Color>
+        <Color x:Key="AppColor3">#3C096C</Color>
+        <Color x:Key="AppColor4">#5A189A</Color>
+        <Color x:Key="TextColor">White</Color>
+        <Color x:Key="BackgroundColor">#f3f3f3</Color>
+        <Color x:Key="Pastel1">#CAFFBF</Color>
+        <Color x:Key="Pastel2">#9BF6FF</Color>
+        <Color x:Key="Pastel3">#FFC6FF</Color>
+        <Color x:Key="Pastel4">#FFFFFC</Color>
+
+    </ContentPage.Resources>
+
+    <Grid Background="White"
+          RowDefinitions="Auto,*,Auto">
+        <Label
+            FontAttributes="Bold"
+            FontSize="Large"
+            Padding="0,20"
+            HorizontalTextAlignment="Center"
+            Text="- MAUIVERTER -" 
+            TextColor="{StaticResource PrimaryText}" />
+        <ScrollView Grid.Row="1"
+                    VerticalOptions="FillAndExpand">
+            <FlexLayout Wrap="Wrap"
+                        JustifyContent="SpaceEvenly"
+                        >
+                <!--#region Information -->
+                <Frame BorderColor="Black"   
+                       CornerRadius="24"
+                       Margin="0,4"
+                       BackgroundColor="{StaticResource Pastel4}"
+                       HeightRequest="190"
+                       WidthRequest="190">
+                    <Grid>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Tapped="TapGestureRecognizer_Tapped" />
+                        </Grid.GestureRecognizers>
+                        <Image Source="information.png">
+                        </Image>
+                        <Label
+                            HorizontalOptions="Center"
+                            VerticalOptions="End"
+                            Text="Information"
+                            TextColor="{StaticResource PrimaryText}" />
+                    </Grid>
+                </Frame>
+                <!--#endregion-->
+
+                <!--#region volumn -->
+                <Frame BorderColor="Black"   
+                       CornerRadius="24"
+                       Margin="0,4"
+                       BackgroundColor="{StaticResource Pastel4}"
+                       HeightRequest="190"
+                       WidthRequest="190">
+                    <Grid>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Tapped="TapGestureRecognizer_Tapped" />
+                        </Grid.GestureRecognizers>
+                        <Image Source="volume.png">
+                        </Image>
+                        <Label
+                            HorizontalOptions="Center"
+                            VerticalOptions="End"
+                            Text="Volume"
+                            TextColor="{StaticResource PrimaryText}" />
+                    </Grid>
+                </Frame>
+                <!--#endregion-->
+
+                <!--#region Length -->
+                <Frame BorderColor="Black"   
+                       CornerRadius="24"
+                       Margin="0,4"
+                       BackgroundColor="{StaticResource Pastel4}"
+                       HeightRequest="190"
+                       WidthRequest="190">
+                    <Grid>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Tapped="TapGestureRecognizer_Tapped" />
+                        </Grid.GestureRecognizers>
+                        <Image Source="length.png">
+                        </Image>
+                        <Label
+                            HorizontalOptions="Center"
+                            VerticalOptions="End"
+                            Text="Length"
+                            TextColor="{StaticResource PrimaryText}" />
+                    </Grid>
+                </Frame>
+                <!--#endregion-->
+
+                <!--#region Mass -->
+                <Frame BorderColor="Black"   
+                       CornerRadius="24"
+                       Margin="0,4"
+                       BackgroundColor="{StaticResource Pastel4}"
+                       HeightRequest="190"
+                       WidthRequest="190">
+                    <Grid>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Tapped="TapGestureRecognizer_Tapped" />
+                        </Grid.GestureRecognizers>
+                        <Image Source="mass.png">
+                        </Image>
+                        <Label
+                            HorizontalOptions="Center"
+                            VerticalOptions="End"
+                            Text="Mass"
+                            TextColor="{StaticResource PrimaryText}" />
+                    </Grid>
+                </Frame>               
+                <!--#endregion-->
+
+                <!--#region Temperature -->
+                <Frame BorderColor="Black"   
+                       CornerRadius="24"
+                       Margin="0,4"
+                       BackgroundColor="{StaticResource Pastel4}"
+                       HeightRequest="190"
+                       WidthRequest="190">
+                    <Grid>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Tapped="TapGestureRecognizer_Tapped" />
+                        </Grid.GestureRecognizers>
+                        <Image Source="temperature.png">
+                        </Image>
+                        <Label
+                            HorizontalOptions="Center"
+                            VerticalOptions="End"
+                            Text="Temperature"
+                            TextColor="{StaticResource PrimaryText}" />
+                    </Grid>
+                </Frame>
+                <!--#endregion-->
+
+                <!--#region Energy -->
+                <Frame BorderColor="Black"   
+                       CornerRadius="24"
+                       Margin="0,4"
+                       BackgroundColor="{StaticResource Pastel4}"
+                       HeightRequest="190"
+                       WidthRequest="190">
+                    <Grid>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Tapped="TapGestureRecognizer_Tapped" />
+                        </Grid.GestureRecognizers>
+                        <Image Source="energy.png">
+                        </Image>
+                        <Label
+                            HorizontalOptions="Center"
+                            VerticalOptions="End"
+                            Text="Energy"
+                            TextColor="{StaticResource PrimaryText}" />
+                    </Grid>
+                </Frame>
+                <!--#endregion-->
+
+                <!--#region Area -->
+                <Frame BorderColor="Black"   
+                       CornerRadius="24"
+                       Margin="0,4"
+                       BackgroundColor="{StaticResource Pastel4}"
+                       HeightRequest="190"
+                       WidthRequest="190">
+                    <Grid>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Tapped="TapGestureRecognizer_Tapped" />
+                        </Grid.GestureRecognizers>
+                        <Image Source="area.png">
+                        </Image>
+                        <Label
+                            HorizontalOptions="Center"
+                            VerticalOptions="End"
+                            Text="Area"
+                            TextColor="{StaticResource PrimaryText}" />
+                    </Grid>
+                </Frame>
+                <!--#endregion-->
+
+                <!--#region Speed -->
+                <Frame BorderColor="Black"   
+                       CornerRadius="24"
+                       Margin="0,4"
+                       BackgroundColor="{StaticResource Pastel4}"
+                       HeightRequest="190"
+                       WidthRequest="190">
+                    <Grid>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Tapped="TapGestureRecognizer_Tapped" />
+                        </Grid.GestureRecognizers>
+                        <Image Source="speed.png">
+                        </Image>
+                        <Label
+                            HorizontalOptions="Center"
+                            VerticalOptions="End"
+                            Text="Speed"
+                            TextColor="{StaticResource PrimaryText}" />
+                    </Grid>
+                </Frame>
+                <!--#endregion-->
+
+                <!--#region Duration -->
+                <Frame BorderColor="Black"   
+                       CornerRadius="24"
+                       Margin="0,4"
+                       BackgroundColor="{StaticResource Pastel4}"
+                       HeightRequest="190"
+                       WidthRequest="190">
+                    <Grid>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Tapped="TapGestureRecognizer_Tapped" />
+                        </Grid.GestureRecognizers>
+                        <Image Source="time.png">
+                        </Image>
+                        <Label
+                            HorizontalOptions="Center"
+                            VerticalOptions="End"
+                            Text="Duration"
+                            TextColor="{StaticResource PrimaryText}" />
+                    </Grid>
+                </Frame>
+            </FlexLayout>
+        </ScrollView>
+        <!--#endregion-->
+    </Grid>
+</ContentPage>
